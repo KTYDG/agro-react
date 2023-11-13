@@ -1,0 +1,10 @@
+.myInput {
+  background-color: lightgray;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 0 12px inset rgba(0, 0, 0, 0.2);
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
+}

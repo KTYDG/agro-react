@@ -1,0 +1,56 @@
+.myForm.myForm {
+  width: 500px;
+}
+
+.headerMargin {
+  margin-bottom: 10px;
+}
+
+.myInput.myInput {
+  display: none;
+}
+
+.labelInp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F0F0F0;
+  border: 3px solid #8F8F8F;
+  border-radius: 7px;
+  width: 250px;
+  height: 100px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.textSize {
+  font-size: 14px;
+  color: #696969;
+}
+
+.botMarg {
+  margin-bottom: 10px;
+}
+
+.imgInpSize {
+  opacity: 40%;
+  width: 42px;
+  height: 42px;
+}
+
+.imgSize {
+  border-radius: 7px;
+  width: auto;
+  height: 200px;
+}
+
+.preview {
+  position: relative;
+  border-radius: 7px;
+  padding-right: 24px;
+}
+
+.crossButton.crossButton {
+  right: 0;
+}

@@ -1,0 +1,11 @@
+.crossButton {
+  background-color: transparent;
+  color: red;
+  border: none;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  font-size: 18px;
+  font-weight: bold;
+  top: 0;
+}

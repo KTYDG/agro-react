@@ -1,0 +1,11 @@
+.window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  background-color: white;
+  padding: 20px;
+  margin-right: 20px;
+  height: calc(100%);
+  width: calc(100% / 5);
+}

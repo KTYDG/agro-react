@@ -1,0 +1,53 @@
+.tableContainer {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.myTable {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.myTable thead {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: table;
+  width: 100%;
+}
+
+.myTable tbody {
+  display: table;
+  width: 100%;
+}
+
+.myTable th {
+  position: relative;
+  width: auto;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.myTable tr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.myTable tr,
+.myTable td,
+.myTable th {
+  overflow: hidden;
+}
+
+.myTable th,
+.myTable td {
+  width: 100%;
+  padding: 5px;
+  font-size: 18px;
+  text-align: left;
+}

@@ -1,0 +1,13 @@
+.colButton {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #fffca5;
+}

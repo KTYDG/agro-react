@@ -1,0 +1,10 @@
+.tableInput {
+  margin: 0;
+  font-size: 16px;
+  background-color: lightgray;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 0 12px inset rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 8px 6px;
+}

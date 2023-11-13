@@ -1,0 +1,28 @@
+.navbar {
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: auto;
+  flex: 0 1 auto;
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar__logout {
+  background-color: transparent;
+  font-size: 22px;
+  font-family: Inter;
+  color: red;
+  padding: 0 15px 0 25px;
+}

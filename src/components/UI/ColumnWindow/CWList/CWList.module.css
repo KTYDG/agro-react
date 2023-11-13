@@ -1,0 +1,9 @@
+.headText {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tableScroll {
+  height: calc(100% - 159px - 10px);
+  overflow: auto;
+}
