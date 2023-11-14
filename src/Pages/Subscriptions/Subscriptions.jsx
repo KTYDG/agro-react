@@ -3,9 +3,10 @@ import styles from "./Subscriptions.module.css";
 import MainWindow from "../../components/UI/MainWindow/MainWindow";
 import MyButton from "../../components/UI/MyButton/MyButton";
 import MyTable from "../../components/UI/MyTable/MyTable";
-import TableHeader from "../../components/UI/TableHeader/TableHeader";
+import TableHeader from "../../components/UI/MyTable/TableHeader/TableHeader";
+import TableSelector from "../../components/UI/MyTable/TableSelector/TableSelector";
 import WideWindow from "../../components/UI/WideWindow/WideWindow";
-import TableInput from "../../components/UI/TableInput/TableInput";
+import TableInput from "../../components/UI/MyTable/TableInput/TableInput";
 
 const Subscriptions = () => {
   return (
@@ -17,10 +18,13 @@ const Subscriptions = () => {
             <tr>
               <TableInput placeholder="Пользователь" />
               <TableInput placeholder="ID подписи" />
-              <TableHeader>Статус</TableHeader>
-              <TableHeader>Категория</TableHeader>
+              <TableSelector name="Статус">
+                <option>Активна</option>
+                <option>Истекла</option>
+              </TableSelector>
+              <TableSelector name="Категория"></TableSelector>
               <TableHeader>Продукт</TableHeader>
-              <TableHeader>Регион</TableHeader>
+              <TableSelector name="Регион"></TableSelector>
               <TableHeader>Начало</TableHeader>
               <TableHeader>Конец</TableHeader>
               <TableHeader>Стоимость, ₽</TableHeader>

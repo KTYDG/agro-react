@@ -9,6 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f9d780;
+  background: #f9d780;
   height: 100vh;
 }

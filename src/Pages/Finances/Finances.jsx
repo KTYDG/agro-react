@@ -4,8 +4,8 @@ import MainWindow from "../../components/UI/MainWindow/MainWindow";
 import WideWindow from "../../components/UI/WideWindow/WideWindow";
 import MyButton from "../../components/UI/MyButton/MyButton";
 import MyTable from "../../components/UI/MyTable/MyTable";
-import TableHeader from "../../components/UI/TableHeader/TableHeader";
-import TableInput from "../../components/UI/TableInput/TableInput";
+import TableHeader from "../../components/UI/MyTable/TableHeader/TableHeader";
+import TableInput from "../../components/UI/MyTable/TableInput/TableInput";
 
 const Finances = () => {
   return (

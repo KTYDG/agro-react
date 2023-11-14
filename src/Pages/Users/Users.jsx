@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Users.module.css";
 import MainWindow from "../../components/UI/MainWindow/MainWindow";
 import WideWindow from "../../components/UI/WideWindow/WideWindow";
 import MyTable from "../../components/UI/MyTable/MyTable";
-import TableHeader from "../../components/UI/TableHeader/TableHeader";
-import TableInput from "../../components/UI/TableInput/TableInput";
+import TableHeader from "../../components/UI/MyTable/TableHeader/TableHeader";
+import TableInput from "../../components/UI/MyTable/TableInput/TableInput";
+import MyModal from "../../components/UI/MyModal/MyModal";
 
 const Users = () => {
+  const [card, setCard] = useState(false);
+
   return (
     <MainWindow>
       <WideWindow className={styles.wideWindow}>
+        <MyModal visible={card} setVisible={setCard}></MyModal>
         <MyTable>
           <thead className={styles.topMargin}>
             <tr>
