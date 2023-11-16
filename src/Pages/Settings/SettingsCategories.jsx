@@ -30,6 +30,18 @@ const SettingsCategories = () => {
     // Добавить код на удаление региона
   };
 
+  const addProduct = (e, value) => {
+    setProducts([...products, value]);
+
+    // Добавить код на отправку региона
+  };
+
+  const removeProduct = (product) => {
+    setProducts(products.filter((r) => r !== product));
+
+    // Добавить код на удаление региона
+  };
+
   return (
     <MainWindow>
       <SettingsMenu />
@@ -48,8 +60,8 @@ const SettingsCategories = () => {
           header="Продукты"
           list={{
             items: products,
-            // add: addCategory,
-            // remove: removeCategory,
+            add: addProduct,
+            remove: removeProduct,
           }}
           current={{ item: "", set: () => {} }}
           placeholder="Новый продукт"

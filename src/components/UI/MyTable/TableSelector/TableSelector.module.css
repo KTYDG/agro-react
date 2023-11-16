@@ -12,4 +12,5 @@
   font-weight: 400;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   width: 100%;
+  cursor: pointer;
 }

@@ -7,8 +7,13 @@ import MyButton from "../../components/UI/MyButton/MyButton";
 import MyTable from "../../components/UI/MyTable/MyTable";
 import TableHeader from "../../components/UI/MyTable/TableHeader/TableHeader";
 import TableInput from "../../components/UI/MyTable/TableInput/TableInput";
+import TableSelector from "components/UI/MyTable/TableSelector/TableSelector";
+import Pagination from "components/UI/Pagination/Pagination";
+import { usePagination } from "hooks/usePagination";
 
 const Requests = () => {
+  const { page, nextPage, lastPage, limit, newLimit } = usePagination();
+
   return (
     <MainWindow>
       <WideWindow>
@@ -24,11 +29,15 @@ const Requests = () => {
               <TableInput placeholder="Пользователь" />
               <TableHeader>Направление</TableHeader>
               <TableInput placeholder="ID запроса" />
-              <TableHeader>Статус</TableHeader>
+              <TableSelector name="Статус">
+                <option>Активен</option>
+                <option>Истек</option>
+                <option>Деактивирован</option>
+              </TableSelector>
               <TableInput placeholder="Телефон" />
-              <TableHeader>Категория</TableHeader>
+              <TableSelector name="Категория"></TableSelector>
               <TableHeader>Продукт</TableHeader>
-              <TableHeader>Регион</TableHeader>
+              <TableSelector name="Регион"></TableSelector>
               <TableHeader>Текст</TableHeader>
               <TableHeader>Начало</TableHeader>
               <TableHeader>Конец</TableHeader>
@@ -37,6 +46,11 @@ const Requests = () => {
           </thead>
           <tbody></tbody>
         </MyTable>
+        <Pagination
+          totalItems="200"
+          pagination={{ page: page, limit: limit }}
+          set={{ nextPage: nextPage, lastPage: lastPage, limit: newLimit }}
+        />
       </WideWindow>
     </MainWindow>
   );

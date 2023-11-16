@@ -5,3 +5,7 @@
 .topMargin {
   margin-top: 35px;
 }
+
+.tableContainer.tableContainer {
+  height: calc(100% - 74px);
+}

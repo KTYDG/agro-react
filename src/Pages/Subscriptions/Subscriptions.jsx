@@ -7,8 +7,12 @@ import TableHeader from "../../components/UI/MyTable/TableHeader/TableHeader";
 import TableSelector from "../../components/UI/MyTable/TableSelector/TableSelector";
 import WideWindow from "../../components/UI/WideWindow/WideWindow";
 import TableInput from "../../components/UI/MyTable/TableInput/TableInput";
+import Pagination from "components/UI/Pagination/Pagination";
+import { usePagination } from "hooks/usePagination";
 
 const Subscriptions = () => {
+  const { page, nextPage, lastPage, limit, newLimit } = usePagination();
+
   return (
     <MainWindow>
       <WideWindow>
@@ -32,6 +36,11 @@ const Subscriptions = () => {
           </thead>
           <tbody></tbody>
         </MyTable>
+        <Pagination
+          totalItems="200"
+          pagination={{ page: page, limit: limit }}
+          set={{ nextPage: nextPage, lastPage: lastPage, limit: newLimit }}
+        />
       </WideWindow>
     </MainWindow>
   );
