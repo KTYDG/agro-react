@@ -11,7 +11,7 @@ import Pagination from "components/UI/Pagination/Pagination";
 import { usePagination } from "hooks/usePagination";
 
 const Subscriptions = () => {
-  const { page, nextPage, lastPage, limit, newLimit } = usePagination();
+  const [page, nextPage, lastPage, limit, newLimit] = usePagination();
 
   return (
     <MainWindow>

@@ -1,9 +1,10 @@
 import React from "react";
+import classnames from "classnames";
 import styles from "./WideWindow.module.css";
 
 const WideWindow = ({ className, children, ...props }) => {
   return (
-    <div className={[styles.wideWindow, className].join(" ")}>{children}</div>
+    <div className={classnames(styles.wideWindow, className)}>{children}</div>
   );
 };
 

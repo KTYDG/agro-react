@@ -22,14 +22,14 @@ const SettingsCategories = () => {
     setCategories([...categories, value]);
 
     // Добавить код на отправку региона
-  };
+  };  
 
   const removeCategory = (category) => {
     setCategories(categories.filter((r) => r !== category));
 
     // Добавить код на удаление региона
   };
-
+  
   const addProduct = (e, value) => {
     setProducts([...products, value]);
 

@@ -1,9 +1,10 @@
 import React from "react";
+import classnames from "classnames";
 import styles from "./MainWindow.module.css";
 
 const MainWindow = ({ className, children, ...props }) => {
   return (
-    <div className={[styles.window, className].join(" ")} {...props}>
+    <div className={classnames(styles.window, className)} {...props}>
       {children}
     </div>
   );

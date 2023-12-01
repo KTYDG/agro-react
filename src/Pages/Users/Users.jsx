@@ -11,7 +11,7 @@ import { usePagination } from "hooks/usePagination";
 
 const Users = () => {
   const [card, setCard] = useState(false);
-  const { page, nextPage, lastPage, limit, newLimit } = usePagination();
+  const [page, nextPage, lastPage, limit, newLimit] = usePagination();
 
   return (
     <MainWindow>

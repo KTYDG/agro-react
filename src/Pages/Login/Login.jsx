@@ -1,28 +1,42 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../context/context";
 import styles from "./Login.module.css";
 import MyInput from "../../components/UI/MyInput/MyInput";
 import MyButton from "../../components/UI/MyButton/MyButton";
 import MyForm from "../../components/UI/MyForm/MyForm";
+import AccountService from "../../API/AccountService";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { setIsAuth } = useContext(Context);
-  const login = (event) => {
+
+  const login = async (event) => {
     event.preventDefault();
-    // Тут добавить код для авторизации !!!
-    setIsAuth(true);
-    localStorage.setItem("auth", true);
+    AccountService.login(username, password, setIsAuth);
   };
 
   return (
-    <MyForm className={styles.login}>
-      <MyInput className={styles.customInput} type="text" placeholder="Логин" />
+    <MyForm onSubmit={login} className={styles.login}>
       <MyInput
+        value={username}
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+        className={styles.customInput}
+        type="text"
+        placeholder="Логин"
+      />
+      <MyInput
+        value={password}
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
         className={styles.customInput}
         type="password"
         placeholder="Пароль"
       />
-      <MyButton onClick={login}>Вход</MyButton>
+      <MyButton type="submit">Вход</MyButton>
     </MyForm>
   );
 };

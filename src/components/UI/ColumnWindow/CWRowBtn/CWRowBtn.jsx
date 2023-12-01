@@ -1,14 +1,15 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import classnames from "classnames";
 import styles from "./CWRowBtn.module.css";
+import { useLocation } from "react-router-dom";
 
 const CWRowBtn = ({ children, to, current, className, ...props }) => {
   const match = useLocation().pathname === to || current === children;
-  const classes = [styles.colButton, className].join(" ");
+  const classes = classnames(styles.colButton, className);
 
   return (
     <button
-      className={match ? [classes, styles.active].join(" ") : classes}
+      className={match ? classnames(classes, styles.active) : classes}
       {...props}
     >
       {children}

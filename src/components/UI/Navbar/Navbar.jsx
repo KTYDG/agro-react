@@ -3,13 +3,13 @@ import styles from "./Navbar.module.css";
 import MyLink from "../MyLink/MyLink";
 import { Context } from "../../../context/context";
 import MyButton from "../MyButton/MyButton";
+import AccountService from "../../../API/AccountService";
 
 const Navbar = () => {
   const { setIsAuth } = useContext(Context);
 
-  const logout = () => {
-    setIsAuth(false);
-    localStorage.removeItem("auth");
+  const logout = async () => {
+    AccountService.logout(setIsAuth);
   };
   return (
     <div className={styles.navbar}>
@@ -21,7 +21,9 @@ const Navbar = () => {
       </div>
       <div className={styles.navbar__links}>
         <MyLink to="/settings">Настройки</MyLink>
-        <MyButton className={styles.navbar__logout} onClick={logout}>Выйти</MyButton>
+        <MyButton className={styles.navbar__logout} onClick={logout}>
+          Выйти
+        </MyButton>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ const SettingsRegions = () => {
     "Брянская область",
   ]);
 
-  const addRegion = (e, value) => {
+  const addRegion = (value) => {
     setRegions([...regions, value]);
 
     // Добавить код на отправку региона

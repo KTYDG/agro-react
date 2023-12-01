@@ -19,6 +19,7 @@ const SettingsCost = () => {
         <MyInput
           className={styles.inputWidth}
           type="text"
+          value={limit}
           onChange={(e) => setLimit(e.target.value)}
         />
         <MyButton>Сохранить</MyButton>

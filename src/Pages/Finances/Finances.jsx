@@ -10,7 +10,7 @@ import Pagination from "components/UI/Pagination/Pagination";
 import { usePagination } from "hooks/usePagination";
 
 const Finances = () => {
-  const { page, nextPage, lastPage, limit, newLimit } = usePagination();
+  const [page, nextPage, lastPage, limit, newLimit] = usePagination();
 
   return (
     <MainWindow>

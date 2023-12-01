@@ -21,5 +21,5 @@ export const usePagination = () => {
     setLimit(newLimit);
   }, []);
 
-  return { page, nextPage, lastPage, limit, newLimit };
+  return [page, nextPage, lastPage, limit, newLimit];
 };
