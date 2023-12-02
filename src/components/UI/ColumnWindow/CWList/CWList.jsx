@@ -5,10 +5,12 @@ import ColumnWindow from "../ColumnWindow";
 import CWTableRow from "../CWTableRow/CWTableRow";
 import CWAddElem from "../CWAddElem/CWAddElem";
 
-const CWList = ({ header, list, current, placeholder }) => {
+const CWList = ({ children, header, list, current, placeholder }) => {
   return (
     <ColumnWindow>
       <h3 className={classnames(styles.headText, styles.stick)}>{header}</h3>
+      {children}
+
       <div className={styles.tableScroll}>
         <table style={{ width: "100%" }}>
           <tbody>

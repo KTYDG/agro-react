@@ -1,7 +1,11 @@
 import axios from "axios";
 
-export default class SettingsService {
-  static async login(username, password, setIsAuth) {
+export default class AccountService {
+  static async login(username, password, setIsAuth, setError) {
+    if (!Boolean(username) || !Boolean(password)) {
+      setError("Заполните поля");
+      return;
+    }
     await axios
       .post("/login", `username=${username}&password=${password}`, {
         headers: {
@@ -10,14 +14,14 @@ export default class SettingsService {
         },
       })
       .then((response) => {
-        console.log(response);
         if (response.data === "ya") {
           setIsAuth(true);
           localStorage.setItem("auth", true);
-        }
+          setError(undefined);
+        } else setError("Неверный логин или пароль");
       })
-      .catch(() => {
-        // console.error("Error:", error);
+      .catch((error) => {
+        console.error("Error:", error);
       });
   }
   static async logout(setIsAuth) {

@@ -1,12 +1,17 @@
 .loader {
-  align-self: center;
-  justify-self: center;
-  border: 16px solid #8b8b8b;
-  border-top: 16px solid #f9d780;
+  position: absolute;
+  top: 0;
+  bottom: 30%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 12px solid #8b8b8b;
+  border-top: 12px solid #f9d780;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   animation: spin 2s linear infinite;
+  overflow: hidden;
 }
 
 @keyframes spin {

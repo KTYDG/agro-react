@@ -9,11 +9,12 @@ import AccountService from "../../API/AccountService";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(undefined);
   const { setIsAuth } = useContext(Context);
 
   const login = async (event) => {
     event.preventDefault();
-    AccountService.login(username, password, setIsAuth);
+    AccountService.login(username, password, setIsAuth, setError);
   };
 
   return (
@@ -36,7 +37,10 @@ const Login = () => {
         type="password"
         placeholder="Пароль"
       />
-      <MyButton type="submit">Вход</MyButton>
+      <div className={styles.row}>
+        <MyButton type="submit">Вход</MyButton>
+        <h1 className={styles.text}>{error}</h1>
+      </div>
     </MyForm>
   );
 };

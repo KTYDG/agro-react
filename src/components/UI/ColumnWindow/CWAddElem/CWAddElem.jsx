@@ -12,12 +12,12 @@ const CWAddElem = ({ placeholder, onClick }) => {
     setItem(e.target.value);
   };
 
-  const handleAdd = (e) => {
+  const handleAdd = () => {
     if (!item) {
       setBorder("2px solid red");
       return;
     }
-    onClick(e, item);
+    onClick(item);
     setItem("");
   };
 
