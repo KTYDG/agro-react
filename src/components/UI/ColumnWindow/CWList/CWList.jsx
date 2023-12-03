@@ -14,10 +14,10 @@ const CWList = ({ children, header, list, current, placeholder }) => {
       <div className={styles.tableScroll}>
         <table style={{ width: "100%" }}>
           <tbody>
-            {list.items.map((item, index) => (
+            {list.items.map((value, index) => (
               <CWTableRow
-                key={index}
-                item={item}
+                key={value.id || value.region_number}
+                item={value.item || value.region_name}
                 index={index}
                 remove={list.remove}
                 current={current}

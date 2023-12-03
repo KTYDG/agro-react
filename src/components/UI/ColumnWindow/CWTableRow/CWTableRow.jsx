@@ -18,7 +18,7 @@ const CWTableRow = ({ item, index, remove, current }) => {
         <CWRowBtn
           current={current.item}
           className={styles.colButton}
-          onClick={() => current.set(item === current.item ? null : item)}
+          onClick={() => current.set(item === current.item ? "" : item)}
         >
           {item}
         </CWRowBtn>

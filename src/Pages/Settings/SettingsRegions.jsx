@@ -16,18 +16,18 @@ const SettingsRegions = () => {
 
   useEffect(() => {
     fetching();
-  }, []);
+  }, [fetching]);
 
-  const addRegion = (value) => {
-    const response = SettingsService.addRegion(value);
-    setRegions([...regions, value]);
-    // Добавить код на отправку региона
+  const addRegion = async (value) => {
+    const response = await SettingsService.addRegion(value);
+    if (response.data.success)
+      setRegions([...regions, { item: value, id: response.data.id }]);
   };
 
-  const removeRegion = (region) => {
-    setRegions(regions.filter((r) => r !== region));
-
-    // Добавить код на удаление региона
+  const removeRegion = async (region) => {
+    const response = await SettingsService.deleteRegion(region);
+    if (response.data.success)
+      setRegions(regions.filter((r) => r.region_name !== region));
   };
 
   return (

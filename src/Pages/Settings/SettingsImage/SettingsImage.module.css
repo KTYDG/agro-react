@@ -1,9 +1,10 @@
 .myForm.myForm {
   width: 500px;
+  min-height: 220px;
 }
 
 .headerMargin {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .myInput.myInput {

@@ -2,56 +2,103 @@ import axios from "axios";
 
 export default class SettingsService {
   static async getRegions() {
-    const response = await axios.get("/settings/manage/get_reпion");
-    return response;
+    return await axios.get("/settings/manage/get_region");
   }
   static async addRegion(name) {
-    const response = await axios.post("/settings/manage/add_region", {
+    return await axios.post("/settings/manage/add_region", {
       region_name: name,
     });
-    return response;
   }
   static async deleteRegion(name) {
-    const response = await axios.delete("/settings/manage/delete_region", {
-      body: { region_name: name },
+    return await axios.delete("/settings/manage/delete_region", {
+      data: { region_name: name },
     });
-    return response;
   }
 
   static async getCategories() {
-    const response = await axios.get("/settings/manage/get_categories");
-    return response;
+    return await axios.get("/settings/manage/get_categories");
   }
   static async addCategory(name) {
-    const response = await axios.post("/settings/manage/add_categor", {
+    return await axios.post("/settings/manage/add_category", {
       category_name: name,
     });
-    return response;
   }
   static async deleteCategory(name) {
-    const response = await axios.delete("/settings/manage/delete/category", {
+    return await axios.delete("/settings/manage/delete/category", {
       data: { category_name: name },
     });
-    return response;
   }
 
   static async getProducts(name) {
-    const response = await axios.get("/settings/manage/get_prod", {
+    return await axios.get("/settings/manage/get_prod", {
       params: { name_categories: name },
     });
-    return response;
   }
   static async addProduct(category, name) {
-    const response = await axios.post("/settings/manage/add_product", {
+    return await axios.post("/settings/manage/add_product", {
       prod_category: category,
       prod_name: name,
     });
-    return response;
   }
   static async deleteProduct(category, name) {
-    const response = await axios.delete("/settings/manage/delete/prod", {
+    return await axios.delete("/settings/manage/delete/prod", {
       data: { prod_category: category, prod_name: name },
     });
-    return response;
+  }
+
+  static async setCharLimit(limit) {
+    return await axios.post(
+      "/settings/manage/max_char",
+      {},
+      {
+        params: { value: limit },
+      }
+    );
+  }
+
+  static async getImage() {
+    return await axios
+      .get(
+        "/check-file",
+        { responseType: "blob" },
+        { headers: { "Cache-Control": "no-cache" } }
+      )
+      .then((response) => {
+        if (response.headers["content-type"] !== "image/png") return null;
+        return URL.createObjectURL(response.data);
+      });
+  }
+  static async postImage(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    return await axios
+      .post("/upload-file", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  static async deleteImage() {
+    return await axios.delete("/delete-file");
+  }
+
+  static async postCost(value) {
+    return await axios.post(
+      "/settings/cost/update_cost",
+      {},
+      {
+        params: { value: value },
+      }
+    );
+  }
+  static async postCostSub(value) {
+    return await axios.post(
+      "/settings/cost/update_costsub",
+      {},
+      {
+        params: { value: value },
+      }
+    );
   }
 }

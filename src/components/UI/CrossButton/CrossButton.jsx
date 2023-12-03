@@ -4,7 +4,11 @@ import styles from "./CrossButton.module.css";
 
 const CrossButton = ({ className, ...props }) => {
   return (
-    <button className={classnames(styles.crossButton, className)} {...props}>
+    <button
+      type="button"
+      className={classnames(styles.crossButton, className)}
+      {...props}
+    >
       ✕
     </button>
   );

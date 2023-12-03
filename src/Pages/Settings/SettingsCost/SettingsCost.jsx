@@ -5,13 +5,24 @@ import MyForm from "../../../components/UI/MyForm/MyForm";
 import MyInput from "../../../components/UI/MyInput/MyInput";
 import MyButton from "../../../components/UI/MyButton/MyButton";
 import styles from "./SettingsCost.module.css";
+import SettingsService from "API/SettingsService";
 
 const SettingsCost = () => {
   const [params, setParams] = useState({
     request: "",
     subscription: "",
   });
-  const postTariff = () => {};
+
+  const postTariff = (e) => {
+    e.preventDefault();
+    if (params.request && !isNaN(params.request)) {
+      SettingsService.postCost(params.request);
+    }
+    if (params.subscription && !isNaN(params.subscription)) {
+      SettingsService.postCostSub(params.subscription);
+    }
+  };
+
   return (
     <MainWindow>
       <SettingsMenu />

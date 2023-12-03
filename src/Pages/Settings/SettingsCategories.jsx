@@ -7,49 +7,53 @@ import { useFetching } from "hooks/useFetching";
 import Loader from "components/UI/Loader/Loader";
 
 const SettingsCategories = () => {
-  const [currentCat, setCurrentCat] = useState(null);
+  const [currentCat, setCurrentCat] = useState("");
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
   const [fetchingCategories, isCategoriesLoading, errorCategories] =
     useFetching(async () => {
       const response = await SettingsService.getCategories();
-      setCategories(Object.keys(response.data));
+      setCategories(response.data);
     });
 
   const [fetchingProducts, isProductsLoading, errorProducts] = useFetching(
     async () => {
       const response = await SettingsService.getProducts(currentCat);
-      setProducts(Object.keys(response.data));
+      setProducts(response.data);
     }
   );
 
   useEffect(() => {
     fetchingCategories();
-  }, []);
+  }, [fetchingCategories]);
 
   useEffect(() => {
     fetchingProducts();
-  }, [currentCat]);
+  }, [fetchingProducts, currentCat]);
 
   const addCategory = async (value) => {
-    await SettingsService.addCategory(value);
-    setCategories([...categories, value]);
+    const response = await SettingsService.addCategory(value);
+    if (response.data.success)
+      setCategories([...categories, { item: value, id: response.data.id }]);
   };
 
   const removeCategory = async (category) => {
-    await SettingsService.deleteCategory(category);
-    setCategories(categories.filter((r) => r !== category));
+    const response = await SettingsService.deleteCategory(category);
+    if (response.data.success)
+      setCategories(categories.filter((r) => r.item !== category));
   };
 
   const addProduct = async (value) => {
-    await SettingsService.addProduct(currentCat, value);
-    setProducts([...products, value]);
+    const response = await SettingsService.addProduct(currentCat, value);
+    if (response.data.success)
+      setProducts([...products, { item: value, id: response.data.id }]);
   };
 
   const removeProduct = async (product) => {
-    await SettingsService.deleteProduct(currentCat, product);
-    setProducts(products.filter((r) => r !== product));
+    const response = await SettingsService.deleteProduct(currentCat, product);
+    if (response.data.success)
+      setProducts(products.filter((r) => r.item !== product));
   };
 
   return (

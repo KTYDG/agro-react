@@ -12,8 +12,8 @@ const Login = () => {
   const [error, setError] = useState(undefined);
   const { setIsAuth } = useContext(Context);
 
-  const login = async (event) => {
-    event.preventDefault();
+  const login = async (e) => {
+    e.preventDefault();
     AccountService.login(username, password, setIsAuth, setError);
   };
 
